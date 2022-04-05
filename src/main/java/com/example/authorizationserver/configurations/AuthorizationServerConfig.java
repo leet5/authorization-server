@@ -48,6 +48,10 @@ public class AuthorizationServerConfig {
                 .redirectUri("http://127.0.0.1:9090/login/oauth2/code/taco-admin-client")
                 .scope("writeIngredients")
                 .scope("deleteIngredients")
+                .scope("ingredients")
+                .scope("users")
+                .scope("tacos")
+                .scope("orders")
                 .scope(OidcScopes.OPENID)
                 .clientSettings(settings -> settings.requireUserConsent(true))
                 .build();
