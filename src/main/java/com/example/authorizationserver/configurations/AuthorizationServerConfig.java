@@ -19,6 +19,7 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.security.web.SecurityFilterChain;
 
 import java.security.KeyPair;
@@ -56,6 +57,11 @@ public class AuthorizationServerConfig {
                 .clientSettings(settings -> settings.requireUserConsent(true))
                 .build();
         return new InMemoryRegisteredClientRepository(registeredClient);
+    }
+
+    @Bean
+    public ProviderSettings providerSettings() {
+        return new ProviderSettings().issuer("http://localhost:9000");
     }
 
     @Bean

@@ -1,8 +1,6 @@
 server.port: 9000
-spring:
-    jpa:
-        open-in-view: false
-        hibernate.ddl-auto: update
-    datasource:
-        generate-unique-name: false
-        name: tacoauth
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
